@@ -17,11 +17,13 @@ function VillainId () {
      }, [])
 
     return(
-        <div className="book">
+        <div className="center-content">
         <h1 className="title">{villain.name}</h1>
         <h2 className="subtitle">{villain.gender}</h2>
-         { villain.books && 
-         <div className="villains-section"><strong>Appeared in Books</strong>
+
+
+         { villain.books?.length > 0  && 
+         <div className="list-section"><strong>Appeared in Books</strong>
         <ul>
            { villain.books && villain.books.map(function (elem)  {
             const id = elem.url.substring(elem.url.lastIndexOf("/") + 1)
@@ -34,13 +36,12 @@ function VillainId () {
     }
 
 
-    { villain.shorts && 
-         <div className="villains-section"><strong>Appeared in Shorts</strong>
+    { villain.shorts?.length > 0 && 
+         <div className="list-section"><strong>Appeared in Shorts</strong>
         <ul>
            { villain.shorts && villain.shorts.map(function (elem)  {
             const id = elem.url.substring(elem.url.lastIndexOf("/") + 1)
-            console.log('id',id)
-            return <li key={elem.name}> <Link to={`/short/${id}`}>{elem.Title}</Link></li>
+            return <li key={elem.title}> <Link to={`/short/${id}`} className="link">{elem.title}</Link></li>
            })
         }
         </ul>

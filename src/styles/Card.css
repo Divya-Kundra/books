@@ -1,9 +1,14 @@
 .card {
   border-radius: 16px;
   width: 250px;
-  height: 400px;
-  border: 2px solid #a4a4a4;
+  height: 200px;
+  /* border: 2px solid var(--border); */
   overflow: hidden;
+  color: var(--text-secondary);
+  padding: 5px;
+  box-sizing: border-box;
+  box-shadow: var(--shadow);
+  text-align: center;
 }
 
 .empty {

@@ -50,6 +50,10 @@ function App() {
   //   setUrl(`https://stephen-king-api.onrender.com/api/${value}`)
   // }
 
+  function handleOnCategoryChange(value) {
+    setLoading(true)
+    setCategory(value)
+  }
 
 
   return (
@@ -66,7 +70,7 @@ function App() {
       <form>
         <div className="form-wrapper">
         <label  id="filter-by-label" htmlFor="category-list">Filter By</label>
-        <select name="category" onChange={(e) => setCategory(e.target.value)} id = "category-list" className="select-container" >
+        <select name="category" onChange={(e) =>handleOnCategoryChange(e.target.value)} id = "category-list" className="select-container" >
           <option value="books" className="option-style">Books</option>
           <option value="shorts">Shorts</option>
           <option value="villains">Villains</option>
@@ -104,6 +108,7 @@ function App() {
                   name={element.name}
                   category={category}
                   gender={element.gender}
+                  notes={element.notes}
                   year={element.Year || element.year}
                   pageCount={element.Pages}
                 ></Card>

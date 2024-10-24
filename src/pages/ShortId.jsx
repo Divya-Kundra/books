@@ -17,17 +17,16 @@ function ShortId() {
 
 
  return (
-    <div className="book">
-    <h1 className="title">{short.Title}</h1>
-    <h2 className="subtitle">Published in {short.year}</h2>
-    <h3 >Type of {short.type} novel </h3>
-     { short.villains && 
-     <div className="villains-section"><strong>Villains that appeared</strong>
+    <div className="center-content">
+    <h1 className="title">{short.title}</h1>
+    <h2 className="subtitle">{`Published in ${short.year} as ${short.type}`}</h2>
+     { short.villain?.length && 
+     <div className="list-section"><strong>Villains that appeared</strong>
     <ul>
        { short.villains && short.villains.map(function (elem)  {
         const id = elem.url.substring(elem.url.lastIndexOf("/") + 1)
         console.log('id',id)
-        return <li key={elem.name}> <Link to={`/villains/${id}`}>{elem.name}</Link></li>
+        return <li key={elem.name}> <Link to={`/villains/${id}`} className="link">{elem.name}</Link></li>
        })
     }
     </ul>
