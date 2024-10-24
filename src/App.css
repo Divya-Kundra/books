@@ -1,0 +1,93 @@
+
+.card-container {
+  display: flex;
+  gap: 100px;
+  flex-wrap: wrap;
+  margin-top: 100px;
+  justify-content: center;
+}
+
+.pagination-btns {
+  width: 200px;
+  margin: 0 auto;
+}
+
+
+.btn {
+  width: 80px;
+  height: 80px;
+  background: transparent;
+  border: none;
+  font-size: 50px;
+}
+
+.search-bar {
+  border: 1px solid #303134;
+  border-radius: 40px;
+  width: 600px;
+  margin: 100px auto;
+  padding-inline: 20px;
+  padding-block: 10px;
+  height: 50px;
+  box-sizing: border-box;
+}
+
+
+.search-input {
+  border: none;
+  width: 90%;
+  margin-left: 10px;
+  font-size: 24px;
+}
+
+.search-input:focus {
+  border: none;
+  outline: none;
+}
+
+.form-wrapper {
+  display: flex;
+  margin-block: 40px;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 100px;
+}
+
+#filter-by-label {
+  font-size: 20px;
+}
+
+.select-container {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  width: 200px;
+  height: 50px;
+  border: 2px solid rgba(0, 0, 0, 0.24);
+  border-radius: 6px;
+  appearance: none;
+  background-image: url('images/drop-down-arrow.png');
+  background-repeat: no-repeat;
+  background-position: right 0.2rem top 50%;
+  background-size: 30px; 
+  font-size: 20px;
+  font-weight: bold;
+  margin-inline: 15px;
+}
+/* .option-style {
+  color: #f00;
+  background-color: aqua;
+  font-weight: bold;
+}
+
+select option {
+  background-color: red;
+  top: 0;
+  width: 200px;
+  color: rebeccapurple
+}
+
+select > option[selected] {
+  background: #f00;
+  width: 200px;
+} */
