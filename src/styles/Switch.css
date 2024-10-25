@@ -4,6 +4,8 @@
     align-items: center;
     gap: 2rem;
     margin: 25px;
+    color: var(--text-secondary);
+    font-weight: bold;
 }
 
 /* The switch - the box around the slider */

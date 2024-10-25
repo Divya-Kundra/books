@@ -65,6 +65,7 @@ function App() {
              onChange={(e) => loadDataDebounced(e.target.value)}></input>
       </div> */}
       <div className="theme-selector">
+      <h1 class="landing-headline">Work of Stephan King</h1>
       <Switch></Switch>
       </div>
       <form>

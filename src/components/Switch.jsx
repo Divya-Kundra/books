@@ -15,7 +15,7 @@ function Switch() {
 
  return(
     <div className="container-switch">
-    <span>Color Theme </span>
+    <span>Color Theme</span>
     <label className="switch">
         <input type="checkbox" onChange={handleChange} checked={theme === 'dark'} />
         <span className="slider"></span>
