@@ -1,12 +1,5 @@
-<<<<<<< HEAD
 # books
-=======
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
->>>>>>> 96f6f57... vite project
+Work of Stephan King
+Can filter work by books, shorts and villains.
+Can perform search operation.
+Dedicated page for each work.
