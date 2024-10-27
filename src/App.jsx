@@ -5,22 +5,29 @@ import Card from "./components/Card.jsx";
 import Btn from  "./components/Btn.jsx"
 import lens from './images/magnifying-lens.png'
 import useDebounce from "./custom-hooks/useDebounce.js";
-import { useNavigate } from "react-router-dom";
 import Switch from "./components/Switch";
+import store from "./store.jsx";
 
 function App() {
   const [apiResponse, setApiResponse] = useState([])
-  const [category, setCategory] = useState('books')
   const [loading, setLoading] = useState(true)
+  const [renderData, setRenderData] = useState([])
   const emptyCards = new Array(32).fill(0)
-  // const loadDataDebounced = useDebounce(loadData, 400)
+  const loadDataDebounced = useDebounce(loadData, 400)
+  const categoryTitleMap = {
+    'books' : 'Title',
+    'shorts' : 'title',
+    'villains' : 'name'
+  }
+  const category = store.getState().value
+  console.log('category', category)
 
   useEffect(() => {
      getBooks(category) 
       .then((res) => {
-        console.log('use effect category', category)
         setLoading(false)
         setApiResponse(res.data)
+        setRenderData(res.data)
         console.log('res is', res.data)
       })
       .catch((err) => console.log(err));
@@ -41,44 +48,46 @@ function App() {
   //   }
   // }
 
-  // function loadData (value){
-  //   setUrl(`https://gutendex.com/books?search=${value}`)
-  // }
-
-  // function categoryChanged(value) {
-  //   console.log('category changed is', value)
-  //   setUrl(`https://stephen-king-api.onrender.com/api/${value}`)
-  // }
+  function loadData (value){
+    console.log('load data value', value)
+    console.log('load data api response', apiResponse)
+    const lowerCase = value.toLowerCase()
+    const searchData = apiResponse.filter((elem) => {
+      return ((elem[categoryTitleMap[category]]).toLowerCase()).includes(lowerCase)
+    })
+    console.log('searchData', searchData)
+    setRenderData(searchData)
+  }
 
   function handleOnCategoryChange(value) {
     setLoading(true)
-    setCategory(value)
+    store.dispatch({ type: 'category/update', payload: value })
   }
 
 
   return (
     <div>
-      {/* <div className="search-bar">
-      <img className="lens-img" width="20px" height= "20px" src={lens}></img>
-      <input className="search-input" 
-             placeholder="Search with author or book name keywords"
-             onChange={(e) => loadDataDebounced(e.target.value)}></input>
-      </div> */}
-      <div className="theme-selector">
-      <h1 class="landing-headline">Work of Stephan King</h1>
+      <h1 className="landing-headline">Work of Stephan King</h1>
       <Switch></Switch>
+      <div className="action-controls">
+      <div className="search-bar">
+        <img className="lens-img" width="20px" height= "20px" src={lens}></img>
+        <input className="search-input" 
+              placeholder="Search with book name keywords"
+              onChange={(e) => loadDataDebounced(e.target.value)}></input>
       </div>
-      <form>
-        <div className="form-wrapper">
-        <label  id="filter-by-label" htmlFor="category-list">Filter By</label>
-        <select name="category" onChange={(e) =>handleOnCategoryChange(e.target.value)} id = "category-list" className="select-container" >
-          <option value="books" className="option-style">Books</option>
-          <option value="shorts">Shorts</option>
-          <option value="villains">Villains</option>
-        </select>
-        </div>
-        </form>
 
+        <div className="form-wrapper">
+          <label  id="filter-by-label" htmlFor="category-list">Filter By</label>
+          <select name="category" 
+                        value={category}
+                  onChange={(e) =>handleOnCategoryChange(e.target.value)} id = "category-list" className="select-container" >
+            <option value="books" className="option-style">Books</option>
+            <option value="shorts">Shorts</option>
+            <option value="villains">Villains</option>
+          </select>
+        </div>
+        </div>
       {/* Skeleton loading */}
        {loading && 
         <div className="card-container">
@@ -97,7 +106,7 @@ function App() {
 
 
       { !loading && <div className="card-container">
-          { apiResponse && apiResponse.map((element, index) => {
+          { renderData && renderData.map((element, index) => {
             return (
                 <Card
                   key={element.id}
