@@ -20,7 +20,6 @@ function App() {
     'villains' : 'name'
   }
   const category = store.getState().value
-  console.log('category', category)
 
   useEffect(() => {
      getBooks(category) 
@@ -28,7 +27,6 @@ function App() {
         setLoading(false)
         setApiResponse(res.data)
         setRenderData(res.data)
-        console.log('res is', res.data)
       })
       .catch((err) => console.log(err));
 
@@ -49,13 +47,10 @@ function App() {
   // }
 
   function loadData (value){
-    console.log('load data value', value)
-    console.log('load data api response', apiResponse)
     const lowerCase = value.toLowerCase()
     const searchData = apiResponse.filter((elem) => {
       return ((elem[categoryTitleMap[category]]).toLowerCase()).includes(lowerCase)
     })
-    console.log('searchData', searchData)
     setRenderData(searchData)
   }
 
