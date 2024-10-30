@@ -27,8 +27,7 @@ function VillainId () {
         <ul>
            { villain.books && villain.books.map(function (elem)  {
             const id = elem.url.substring(elem.url.lastIndexOf("/") + 1)
-            console.log('id',id)
-            return <li key={elem.title}> <Link to={`/books/${id}`}>{elem.title}</Link></li>
+            return <li key={elem.title}> <Link to={`/books/${id}`} className="link">{elem.title}</Link></li>
            })
         }
         </ul>

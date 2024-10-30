@@ -21,7 +21,6 @@ function BookId() {
         <h1 className="title">{book.Title}</h1>
         <h2 className="subtitle"><strong>Published by {book.Publisher} in {book.Year}</strong></h2>
        { book.villains?.length > 0 && <div className="list-section"> <h2>Villains that appeared in the book</h2> 
-       
         <ul>
            { book.villains && book.villains.map(function (elem)  {
             const id = elem.url.substring(elem.url.lastIndexOf("/") + 1)

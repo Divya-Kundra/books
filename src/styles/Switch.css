@@ -1,11 +1,17 @@
 .container-switch {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 5px;
     margin: 25px;
     color: var(--text-secondary);
     font-weight: bold;
+    font-size: 18px;
+
+    @media (min-width: 900px) {
+        justify-content: flex-end;
+
+    }
 }
 
 /* The switch - the box around the slider */
@@ -46,12 +52,12 @@
     border-radius: 20px;
     left: 0.3em;
     bottom: 0.3em;
-    background-color: var(--text-primary);
+    background-color: var(--border);
     transition: .4s;
 }
 
 input:checked+.slider {
-    background-color: var(--accent);
+    background-color: var(--text-primary);
 }
 
 

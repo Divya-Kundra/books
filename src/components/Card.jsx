@@ -11,14 +11,14 @@ function Card({ category, emptyCard, title, publisher, name, type, gender, year,
 
   }
 
-  const booksMarkup = <><h2 style={{color : 'var(--accent-hover)'}}>{title}</h2><p> Published by {publisher}</p><p> Year {year} </p><p> {pageCount} Pages</p></>
+  const booksMarkup = <><h2 style={{color : 'var(--text-primary'}}>{title}</h2><p> Published by {publisher}</p><p> Year {year} </p><p> {pageCount} Pages</p></>
 
-  const shortsMarkup = <> <h2 style={{color : 'var(--accent-hover)'}}>{title}</h2>
+  const shortsMarkup = <> <h2 style={{color : 'var(--text-primary)'}}>{title}</h2>
   <p>{type}</p>
   <p>{shortsType && shortsType.slice(0,1).toUpperCase() + shortsType.slice(1)}</p>
   <p>{year}</p></>
 
-  const villainsMarkup = <><h2 style={{color : 'var(--accent-hover)'}}>{name}</h2>
+  const villainsMarkup = <><h2 style={{color : 'var(--text-primary)'}}>{name}</h2>
   <p>{gender}</p>
   <p>{notes && [...notes].slice(0,3).join(', ')}</p></>
 
