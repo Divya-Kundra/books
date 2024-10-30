@@ -1,3 +1,7 @@
+.App {
+  margin: 20px auto 50px;
+}
+
 
 .card-container {
   display: flex;
@@ -26,10 +30,11 @@
   justify-content: center;
   margin-block: 40px;
   position: relative;
+
 }
 
 .search-bar {
-  border: 1px solid #303134;
+  border: 1px solid var(--border);
   border-radius: 40px;
   width: 600px;
   padding-inline: 20px;
@@ -37,6 +42,15 @@
   height: 50px;
   box-sizing: border-box;
   position: absolute;
+  max-width: 400px;
+
+  @media (min-width: 900px) {
+   max-width: 600px
+  }
+}
+
+.search-bar:focus {
+  outline-color: var(--text-secondary);
 }
 
 .landing-headline {
@@ -51,6 +65,9 @@
   width: 90%;
   margin-left: 10px;
   font-size: 24px;
+  background-color: var(--background);
+  color: var(--text-secondary);
+  font-weight: 300;
 }
 
 .search-input:focus {
@@ -59,7 +76,13 @@
 }
 
 .form-wrapper {
-  margin-left: auto;
+  margin: 100px auto 0;
+
+  @media (min-width: 1200px) {
+    margin-block: 0;
+    margin-right: 0;
+    margin-left: auto;
+  }
 }
 
 #filter-by-label {
@@ -75,7 +98,6 @@
   width: 200px;
   height: 50px;
   padding-left: 10px;
-  /* border: 2px solid rgba(0, 0, 0, 0.24); */
   border-radius: 6px;
   appearance: none;
   background-image: url('images/drop-down-arrow.png');
@@ -86,7 +108,7 @@
   font-weight: bold;
   margin-inline: 15px;
   margin-left: 10px;
-  color: var(--accent-hover);
+  color: var(--text-secondary);
   background-color: var(--background);
   outline-color: var(--text-secondary);
 }
