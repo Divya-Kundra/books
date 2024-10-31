@@ -33,19 +33,6 @@ function App() {
   }, [category]);
 
 
-  // function btnHandler (direction = "next") {
-  //   setLoading(true)
-  //   if(direction === "next") {
-  //     if(apiResponse.next) {
-  //       setUrl(apiResponse.next)
-  //     }
-  //   } else {
-  //     if(apiResponse.previous) {
-  //       setUrl(apiResponse.previous)
-  //     }
-  //   }
-  // }
-
   function loadData (value){
     const lowerCase = value.toLowerCase()
     const searchData = apiResponse.filter((elem) => {
@@ -61,14 +48,14 @@ function App() {
 
 
   return (
-    <div>
+    <div className="App">
       <h1 className="landing-headline">Work of Stephan King</h1>
       <Switch></Switch>
       <div className="action-controls">
       <div className="search-bar">
         <img className="lens-img" width="20px" height= "20px" src={lens}></img>
         <input className="search-input" 
-              placeholder="Search with book name keywords"
+              placeholder={`Search with ${category.substring(0, category.length-1)} name keywords`}
               onChange={(e) => loadDataDebounced(e.target.value)}></input>
       </div>
 
@@ -78,8 +65,8 @@ function App() {
                         value={category}
                   onChange={(e) =>handleOnCategoryChange(e.target.value)} id = "category-list" className="select-container" >
             <option value="books" className="option-style">Books</option>
-            <option value="shorts">Shorts</option>
-            <option value="villains">Villains</option>
+            <option value="shorts" className="option-style">Shorts</option>
+            <option value="villains" className="option-style">Villains</option>
           </select>
         </div>
         </div>
@@ -120,10 +107,6 @@ function App() {
             );
           })}
         </div> }
-        {/* <div className="pagination-btns">
-          <Btn name="&lsaquo;" clickHandler={() => btnHandler('prev')}></Btn>
-          <Btn name="&rsaquo;" clickHandler={() => btnHandler('next')}></Btn>
-        </div> */}
     </div>
   );
 }
